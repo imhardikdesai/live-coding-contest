@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.headTitle {
+    margin-top: 10px;
+}
+#Logo{
+    height: 84px;
+    padding-left: 4px;
+}
+.card-body{
+    padding-bottom: 5px !important;
+}
+.line {
+    margin: auto;
+    width: 23vw;
+    height: 0.5vh;
+    background-color: red;
+    border-radius: 20px;
+}
+
+
+#cardBody {
+    width: 54vw;
+    margin-top: 1.5rem;
+}
