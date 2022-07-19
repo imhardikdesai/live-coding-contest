@@ -1,7 +1,9 @@
 // https://source.unsplash.com/1280x720/?developer,computer,laptop,programming 
+// https://kontests.net/api
 let cardBody = document.getElementById('cardBody');
 let category = ["developer", "computer", "laptop", "programming", "coding"];
-
+let website = ["CodeForces", "CodeForces Gym", "TopCoder", "AtCoder", "CS Academy", "CodeChef", "HackerRank", "HackerEarth", "Kick Start", "LeetCode", "Toph"];
+let webList = document.getElementById('webList');
 // All the Useful function 
 
 // Genrate Random Number to select category
@@ -21,12 +23,40 @@ function formatedDate(oldDate) {
     let newDate = oldDate.substring(0, 10);
     return newDate;
 }
-fetch('https://kontests.net/api/v1/all')
+
+//Grab the name
+let txt = ""
+for (index in website) {
+    txt += `<li onClick="${sendCategory(index)}" id="${index}"><a class="dropdown-item" href="#">${website[index]}</a></li>`
+}
+webList.innerHTML = txt;
+let bool;
+// select value of selected Category
+function sendCategory(index) {
+    console.log(website[index]);
+}
+//Parse Category to Function
+if (bool == true) {
+
+}
+
+// Grab quotas text in json object
+let json;
+fetch('Assets/json/codingQuota.json')
     .then(response => response.json())
-    .then(data => {
-        let str = "";
-        for (key in data) {
-            str += `<div class="card mb-3">
+    .then(quotes => {
+        json = quotes;
+    })
+    .catch(err => console.error(err));
+
+// fetch api for coding contest
+function fetchAPI(web) {
+    fetch(`https://kontests.net/api/v1/${web}`)
+        .then(response => response.json())
+        .then(data => {
+            let str = "";
+            for (key in data) {
+                str += `<div class="card mb-3">
                         <img src="https://source.unsplash.com/1000x300/?${category[randomCategory()]},${category[randomCategory()]}" class="card-img-top"
                             alt="Image">
                         <div class="card-body">
@@ -37,8 +67,7 @@ fetch('https://kontests.net/api/v1/all')
                                     <span class="badge text-bg-danger">Ends in 24 Hour</span>
                                 </div>
                             </div>
-                            <p class="card-text">Always code as if the guy who ends up maintaining your code will be a violent
-                                psychopath who knows where you live.</p>
+                            <p class="card-text">${json[key].text}</p>
                             <div class="d-grid gap-1">
                                 <a href="${data[key].url}" target="_blank">
                                 <button class="btn btn-block btn-primary">Join Contest</button>
@@ -57,6 +86,7 @@ fetch('https://kontests.net/api/v1/all')
                             </div>
                         </div>
                   </div>`;
-        }
-        cardBody.innerHTML = str;
-    }).catch(err => console.error(err));
+            }
+            cardBody.innerHTML = str;
+        }).catch(err => console.error(err));
+}
