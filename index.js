@@ -56,28 +56,29 @@ function fetchAPI(webName) {
                                 <h5 class="card-title">${data[key].name}</h5>
                                 <div>
                                     <span class="badge text-bg-success">${data[key].site != undefined ? data[key].site : website[websiteAPI.indexOf(webName)]} </span>
-                                    <span class="badge text-bg-danger">Ends in 24 Hour</span>
-                                </div>
-                            </div>
+                                    ${data[key].in_24_hours = true ? `<span></span>` : `<span class="badge text-bg-danger">Ends in 24 hour </span>`}
+                                   
+                                </div >
+                            </div >
                             <p class="card-text">${json[key].text}</p>
                             <div class="d-grid gap-1">
                                 <a href="${data[key].url}" target="_blank">
                                 <button class="btn btn-block btn-primary">Join Contest</button>
                                 </a>
                             </div>
-                            </div>
-                            <div class="d-flex justify-content-between card-footer text-muted">
-                            <div>
-                                Start Date: ${formatedDate(data[key].start_time)}
-                            </div>
-                            <div>
-                                Duartion: ${toDay(data[key].duration)} Days
-                            </div>
-                            <div>
-                                End Date: ${formatedDate(data[key].end_time)}
-                            </div>
+                            </div >
+                    <div class="d-flex justify-content-between card-footer text-muted">
+                        <div>
+                            Start Date: ${formatedDate(data[key].start_time)}
                         </div>
-                  </div>`;
+                        <div>
+                            Duartion: ${toDay(data[key].duration)} Days
+                        </div>
+                        <div>
+                            End Date: ${formatedDate(data[key].end_time)}
+                        </div>
+                    </div>
+                  </div > `;
             }
             cardBody.innerHTML = str;
         }).catch(err => console.error(err));
