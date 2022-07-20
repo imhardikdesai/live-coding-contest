@@ -31,15 +31,21 @@
     margin-top: 1.5rem;
 }
 
+.timeText {
+    padding: 0px 5px 0px 10px;
+}
+
 /* media quries */
 @media only screen and (max-width: 605px) {
     #cardBody {
         width: 96vw;
     }
-    .timeText{
+
+    .timeText {
         font-size: 0.9rem;
     }
-    .headTitle{
+
+    .headTitle {
         margin-top: 28px;
     }
 }

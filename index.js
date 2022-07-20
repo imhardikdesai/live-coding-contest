@@ -68,13 +68,13 @@ function fetchAPI(webName) {
                             </div>
                             </div >
                     <div class="d-flex justify-content-between card-footer text-muted">
-                        <div class="timeText">
-                            Start Date: ${formatedDate(data[key].start_time)}
+                        <div class="timeText ">
+                            Start Date:${formatedDate(data[key].start_time)}
                         </div>
-                        <div class="timeText">
-                            Duartion: ${toDay(data[key].duration)} Days
+                        <div class="timeText ">
+                            Duartion: ${toDay(data[key].duration)} Days 
                         </div>
-                        <div class="timeText">
+                        <div class="timeText ">
                             End Date: ${formatedDate(data[key].end_time)}
                         </div>
                     </div>
