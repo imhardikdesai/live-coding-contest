@@ -7,13 +7,16 @@
 .headTitle {
     margin-top: 10px;
 }
-#Logo{
+
+#Logo {
     height: 84px;
     padding-left: 4px;
 }
-.card-body{
+
+.card-body {
     padding-bottom: 5px !important;
 }
+
 .line {
     margin: auto;
     width: 23vw;
@@ -26,4 +29,17 @@
 #cardBody {
     width: 54vw;
     margin-top: 1.5rem;
+}
+
+/* media quries */
+@media only screen and (max-width: 605px) {
+    #cardBody {
+        width: 96vw;
+    }
+    .timeText{
+        font-size: 0.9rem;
+    }
+    .headTitle{
+        margin-top: 28px;
+    }
 }
